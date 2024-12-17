@@ -1,5 +1,6 @@
-import { AppShell, Burger } from "@mantine/core";
+import { AppShell, Burger, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [opened, { toggle }] = useDisclosure();
@@ -15,8 +16,10 @@ function App() {
       padding="md"
     >
       <AppShell.Header>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <div>Logo</div>
+        <Group h="100%" p="10px">
+          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+          <NavBar />
+        </Group>
       </AppShell.Header>
 
       <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
