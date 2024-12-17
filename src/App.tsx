@@ -2,6 +2,7 @@ import { AppShell, Burger, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import NavBar from "./components/NavBar";
 import ColorActionSwitch from "./components/ColorActionSwitch";
+import GameGrid from "./components/GameGrid";
 
 function App() {
   const [opened, { toggle }] = useDisclosure();
@@ -27,8 +28,7 @@ function App() {
       <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
 
       <AppShell.Main>
-        Main
-        <ColorActionSwitch />
+        <GameGrid />
       </AppShell.Main>
     </AppShell>
   );
