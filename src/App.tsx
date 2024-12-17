@@ -1,6 +1,7 @@
 import { AppShell, Burger, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import NavBar from "./components/NavBar";
+import ColorActionSwitch from "./components/ColorActionSwitch";
 
 function App() {
   const [opened, { toggle }] = useDisclosure();
@@ -24,7 +25,10 @@ function App() {
 
       <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
 
-      <AppShell.Main>Main</AppShell.Main>
+      <AppShell.Main>
+        Main
+        <ColorActionSwitch />
+      </AppShell.Main>
     </AppShell>
   );
 }
