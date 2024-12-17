@@ -1,11 +1,13 @@
 import { Group, Image, Text } from "@mantine/core";
 import logo from "../assets/logo.webp";
+import ColorActionSwitch from "./ColorActionSwitch";
 
 const NavBar = () => {
   return (
-    <Group align="center">
+    <Group>
       <Image src={logo} w="40px" h="40px" />
-      <Text>Game-Radar</Text>
+      <Text>asd</Text>
+      <ColorActionSwitch />
     </Group>
   );
 };

@@ -17,7 +17,7 @@ const ColorActionIcon = () => {
         setColorScheme(computedColorScheme === "light" ? "dark" : "light")
       }
       variant="default"
-      size="xl"
+      size="lg"
       aria-label="Toggle color scheme"
     >
       {computedColorScheme === "dark" && <FaSun size="20px" />}
