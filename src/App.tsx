@@ -1,7 +1,6 @@
 import { AppShell, Burger, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import NavBar from "./components/NavBar";
-import ColorActionSwitch from "./components/ColorActionSwitch";
 import GameGrid from "./components/GameGrid";
 
 function App() {
