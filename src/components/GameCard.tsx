@@ -5,11 +5,12 @@ import {
   Title,
   Stack,
   useComputedColorScheme,
-  Text,
+  Group,
 } from "@mantine/core";
 import cx from "clsx";
 import classes from "../styles/GameCard.module.css";
 import PlatformIconlist from "./PlatformIconlist";
+import CriticScore from "./CriticScore";
 
 interface Props {
   game: Game;
@@ -32,7 +33,7 @@ const GameCard = ({ game }: Props) => {
       )}
     >
       <Stack justify="space-between" h="100%">
-        <Box h={160} />
+        <Box h={160} p="10px"></Box>
         <Box
           className={cx(
             classes.cardBox,
@@ -40,11 +41,14 @@ const GameCard = ({ game }: Props) => {
           )}
         >
           <Title order={3}>{game.name}</Title>
-          <PlatformIconlist
-            platforms={game.parent_platforms.map(
-              (platform) => platform.platform
-            )}
-          />
+          <Group justify="space-between">
+            <PlatformIconlist
+              platforms={game.parent_platforms.map(
+                (platform) => platform.platform
+              )}
+            />
+            <CriticScore score={game.metacritic} />
+          </Group>
         </Box>
       </Stack>
     </BackgroundImage>

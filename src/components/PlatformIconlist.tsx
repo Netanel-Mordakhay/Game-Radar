@@ -33,11 +33,11 @@ const PlatformIconlist = ({ platforms }: Props) => {
   };
 
   return (
-    <Group my={3}>
+    <Group my={5}>
       {platforms.map((platform) => {
         const Icon = iconMap[platform.slug];
         return Icon ? (
-          <Icon key={platform.id} className={classes.icon} size={20} />
+          <Icon key={platform.id} className={classes.icon} size={18} />
         ) : null;
       })}
     </Group>
