@@ -1,28 +1,41 @@
 import { Game } from "../hooks/useGames";
-import { Box, BackgroundImage, Title, Stack } from "@mantine/core";
+import {
+  Box,
+  BackgroundImage,
+  Title,
+  Stack,
+  useComputedColorScheme,
+} from "@mantine/core";
+import cx from "clsx";
+import classes from "../styles/GameCard.module.css";
 
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
+  const computedColorScheme = useComputedColorScheme("light", {
+    getInitialValueInEffect: true,
+  });
+
   return (
-    <BackgroundImage src={game.background_image} radius="md">
+    <BackgroundImage
+      src={game.background_image}
+      radius="md"
+      className={cx(
+        classes.backgroundBox,
+        computedColorScheme === "light"
+          ? classes.lightBackground
+          : classes.darkBackground
+      )}
+    >
       <Stack justify="space-between" h="100%">
         <Box h={160} />
         <Box
-          style={{
-            backdropFilter: "blur(4px)",
-            //margin: "10px",
-            backgroundColor: "rgba(255, 255, 255, 0.2)",
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // FOR DARK
-            //borderRadius: "8px",
-            borderBottomRightRadius: "8px",
-            borderBottomLeftRadius: "8px",
-            padding: "10px",
-            borderTop: "solid 1px rgba(255, 255, 255, 0.3)",
-            borderTop: "solid 1px rgba(0, 0, 0, 0.7)", // FOR DARK
-          }}
+          className={cx(
+            classes.cardBox,
+            computedColorScheme === "light" ? classes.lightBox : classes.darkBox
+          )}
         >
           <Title order={5}>{game.name}</Title>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora

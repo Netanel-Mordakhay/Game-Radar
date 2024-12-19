@@ -1,0 +1,28 @@
+.backgroundBox {
+  box-shadow: var(--mantine-shadow-sm);
+}
+
+.lightBackground {
+  border: 1px solid var(--mantine-color-gray-4);
+}
+
+.darkBackground {
+  border: 1px solid var(--mantine-color-dark-4);
+}
+
+.cardBox {
+  backdrop-filter: blur(3px);
+  border-bottom-right-radius: var(--mantine-radius-md);
+  border-bottom-left-radius: var(--mantine-radius-md);
+  padding: 10px;
+}
+
+.lightBox {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top: solid 1px rgba(255, 255, 255, 0.15);
+}
+
+.darkBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top: solid 1px rgba(0, 0, 0, 0.15);
+}
