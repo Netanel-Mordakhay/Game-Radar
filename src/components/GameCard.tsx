@@ -5,9 +5,11 @@ import {
   Title,
   Stack,
   useComputedColorScheme,
+  Text,
 } from "@mantine/core";
 import cx from "clsx";
 import classes from "../styles/GameCard.module.css";
+import PlatformIconlist from "./PlatformIconlist";
 
 interface Props {
   game: Game;
@@ -37,9 +39,12 @@ const GameCard = ({ game }: Props) => {
             computedColorScheme === "light" ? classes.lightBox : classes.darkBox
           )}
         >
-          <Title order={5}>{game.name}</Title>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-          aperiam vitae voluptatibus odio quidem quae.
+          <Title order={3}>{game.name}</Title>
+          <PlatformIconlist
+            platforms={game.parent_platforms.map(
+              (platform) => platform.platform
+            )}
+          />
         </Box>
       </Stack>
     </BackgroundImage>
