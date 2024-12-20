@@ -29,7 +29,10 @@ function App() {
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
-        <GenreList onSelectedGenre={(genre) => setSelectedGenre(genre)} />
+        <GenreList
+          selectedGenre={selectedGenre}
+          onSelectedGenre={(genre) => setSelectedGenre(genre)}
+        />
       </AppShell.Navbar>
 
       <AppShell.Main>
