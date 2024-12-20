@@ -41,7 +41,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   if (error) return null;
 
   return (
-    <Box mb={15}>
+    <Box mb={15} mt={6}>
       <Menu
         shadow="md"
         transitionProps={{ transition: "fade", duration: 150 }}

@@ -9,6 +9,7 @@ import { Platform } from "./hooks/useGames";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
 import "./index.css";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -51,6 +52,7 @@ function App() {
       </AppShell.Navbar>
 
       <AppShell.Main>
+        <GameHeading gameQuery={gameQuery} />
         <Group>
           <PlatformSelector
             selectedPlatform={gameQuery.platform}

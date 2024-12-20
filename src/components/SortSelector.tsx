@@ -24,7 +24,7 @@ const SortSelector = ({ sortOrder, onSelectedSortOrder }: Props) => {
   );
 
   return (
-    <Box mb={15}>
+    <Box mb={15} mt={6}>
       <Menu
         shadow="md"
         transitionProps={{ transition: "fade", duration: 150 }}
