@@ -38,7 +38,7 @@ const SortSelector = ({ sortOrder, onSelectedSortOrder }: Props) => {
             variant="gradient"
             rightSection={<BsChevronDown />}
           >
-            Order by: {currentSortOrder?.label || "Relevance"}
+            Sort: {currentSortOrder?.label || "Relevance"}
           </Button>
         </Menu.Target>
         <Menu.Dropdown>
