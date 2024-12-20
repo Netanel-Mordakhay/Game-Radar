@@ -7,7 +7,7 @@ import {
   FaApple,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+import { SiNintendo, SiAtari, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { Group } from "@mantine/core";
 import { Platform } from "../hooks/useGames";
@@ -30,6 +30,8 @@ const PlatformIconlist = ({ platforms }: Props) => {
     ios: MdPhoneIphone,
     android: FaAndroid,
     web: BsGlobe,
+    atari: SiAtari,
+    sega: SiSega,
   };
 
   return (

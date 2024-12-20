@@ -9,12 +9,18 @@ import {
   FaApple,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo, SiAtari, SiSega, SiCommodore } from "react-icons/si";
+import { SiNintendo, SiAtari, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import usePlatfroms from "../hooks/usePlatforms";
+import { Platform } from "../hooks/useGames";
 
-const PlatformSelector = () => {
+interface Props {
+  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
+}
+
+const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatfroms();
 
   const iconMap: { [key: string]: IconType } = {
@@ -30,7 +36,6 @@ const PlatformSelector = () => {
     web: BsGlobe,
     atari: SiAtari,
     sega: SiSega,
-    commodore: SiCommodore,
   };
 
   if (error) return null;
@@ -50,7 +55,7 @@ const PlatformSelector = () => {
             variant="gradient"
             rightSection={<BsChevronDown />}
           >
-            Platforms
+            {selectedPlatform?.name || "Platforms"}
           </Button>
         </Menu.Target>
         <Menu.Dropdown>
@@ -58,6 +63,7 @@ const PlatformSelector = () => {
             const Icon = iconMap[platform.slug];
             return Icon ? (
               <Menu.Item
+                onClick={() => onSelectPlatform(platform)}
                 key={platform.id}
                 leftSection={<Icon key={platform.id} />}
               >
