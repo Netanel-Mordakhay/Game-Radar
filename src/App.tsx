@@ -31,7 +31,7 @@ function App() {
       withBorder={true}
     >
       <AppShell.Header>
-        <Group h="100%" p="10px">
+        <Group h="100%" p="10px" wrap="nowrap">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <NavBar />
         </Group>
