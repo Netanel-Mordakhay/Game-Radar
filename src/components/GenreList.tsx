@@ -43,6 +43,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
                       w="32px"
                       radius={16}
                       src={getCroppedImageURL(genre.image_background)}
+                      //src={genre.image_background}
                       fit="cover"
                     />{" "}
                     {genre.name}

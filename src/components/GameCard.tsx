@@ -12,7 +12,7 @@ import classes from "../styles/GameCard.module.css";
 import PlatformIconlist from "./PlatformIconlist";
 import CriticScore from "./CriticScore";
 import getCroppedImageURL from "../services/image-url";
-import Emoji from "./emoji";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;

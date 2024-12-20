@@ -1,4 +1,4 @@
-import { Image, ImageProps } from "@mantine/core";
+import { Image } from "@mantine/core";
 import bullsEye from "../assets/bulls-eye.webp";
 import thumbsUp from "../assets/thumbs-up.webp";
 import meh from "../assets/meh.webp";
