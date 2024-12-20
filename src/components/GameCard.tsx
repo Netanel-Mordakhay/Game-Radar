@@ -11,6 +11,7 @@ import cx from "clsx";
 import classes from "../styles/GameCard.module.css";
 import PlatformIconlist from "./PlatformIconlist";
 import CriticScore from "./CriticScore";
+import getCroppedImageURL from "../services/image-url";
 
 interface Props {
   game: Game;
@@ -23,7 +24,7 @@ const GameCard = ({ game }: Props) => {
 
   return (
     <BackgroundImage
-      src={game.background_image}
+      src={getCroppedImageURL(game.background_image)}
       radius="md"
       className={cx(
         classes.backgroundBox,
