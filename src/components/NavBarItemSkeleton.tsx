@@ -1,4 +1,4 @@
-import { Group, Skeleton, Stack } from "@mantine/core";
+import { Group, Skeleton } from "@mantine/core";
 
 const NavBarItemSkeleton = () => {
   return (

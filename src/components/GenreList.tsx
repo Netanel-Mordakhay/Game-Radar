@@ -1,9 +1,13 @@
-import { Group, Image, List, Skeleton, Stack, Text } from "@mantine/core";
-import useGenres from "../hooks/useGenres";
+import { Button, Group, Image, List, Stack } from "@mantine/core";
+import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageURL from "../services/image-url";
 import NavBarItemSkeleton from "./NavBarItemSkeleton";
 
-const GenreList = () => {
+interface Props {
+  onSelectedGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectedGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4];
 
@@ -21,15 +25,22 @@ const GenreList = () => {
         <List listStyleType="none">
           {data.map((genre) => (
             <List.Item key={genre.id} my={2}>
-              <Group>
-                <Image
-                  h="32px"
-                  w="32px"
-                  radius={16}
-                  src={getCroppedImageURL(genre.image_background)}
-                />
-                <Text size="lg">{genre.name}</Text>
-              </Group>
+              <Button
+                size="md"
+                variant="subtle"
+                color="gray"
+                onClick={() => onSelectedGenre(genre)}
+              >
+                <Group>
+                  <Image
+                    h="32px"
+                    w="32px"
+                    radius={16}
+                    src={getCroppedImageURL(genre.image_background)}
+                  />{" "}
+                  {genre.name}
+                </Group>
+              </Button>
             </List.Item>
           ))}
         </List>

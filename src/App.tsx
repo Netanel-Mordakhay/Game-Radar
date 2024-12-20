@@ -3,8 +3,11 @@ import { useDisclosure } from "@mantine/hooks";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
+import { useState } from "react";
+import { Genre } from "./hooks/useGenres";
 
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -26,11 +29,11 @@ function App() {
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
-        <GenreList />
+        <GenreList onSelectedGenre={(genre) => setSelectedGenre(genre)} />
       </AppShell.Navbar>
 
       <AppShell.Main>
-        <GameGrid />
+        <GameGrid selectedGenre={selectedGenre} />
       </AppShell.Main>
     </AppShell>
   );
