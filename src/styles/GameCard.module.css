@@ -5,7 +5,7 @@
 .lightBackground {
   border: 1px solid var(--mantine-color-gray-4);
   outline: none;
-  transition: transform 0.35s ease-in-out, outline 0.35s ease-in-out;
+  transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out;
 }
 
 .lightBackground:hover {
@@ -16,7 +16,7 @@
 .darkBackground {
   border: 1px solid var(--mantine-color-dark-4);
   outline: none;
-  transition: transform 0.35s ease-in-out, outline 0.35s ease-in-out;
+  transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out;
 }
 
 .darkBackground:hover {
