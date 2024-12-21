@@ -4,54 +4,24 @@
 
 .lightBackground {
   border: 1px solid var(--mantine-color-gray-4);
+  outline: none;
+  transition: transform 0.35s ease-in-out, outline 0.35s ease-in-out;
 }
 
 .lightBackground:hover {
-  animation: borderMoveLight 0.5s normal linear;
-}
-
-@keyframes borderMoveLight {
-  0% {
-    border-color: var(--mantine-color-gray-4);
-  }
-  25% {
-    border-color: var(--mantine-color-gray-6);
-  }
-  50% {
-    border-color: var(--mantine-color-gray-8);
-  }
-  75% {
-    border-color: var(--mantine-color-gray-6);
-  }
-  100% {
-    border-color: var(--mantine-color-gray-4);
-  }
+  outline: 1px solid var(--mantine-color-blue-4);
+  transform: scale(1.05);
 }
 
 .darkBackground {
   border: 1px solid var(--mantine-color-dark-4);
+  outline: none;
+  transition: transform 0.35s ease-in-out, outline 0.35s ease-in-out;
 }
 
 .darkBackground:hover {
-  animation: borderMoveDark 0.5s normal linear;
-}
-
-@keyframes borderMoveDark {
-  0% {
-    border-color: var(--mantine-color-dark-4);
-  }
-  25% {
-    border-color: var(--mantine-color-dark-3);
-  }
-  50% {
-    border-color: var(--mantine-color-dark-2);
-  }
-  75% {
-    border-color: var(--mantine-color-dark-3);
-  }
-  100% {
-    border-color: var(--mantine-color-dark-4);
-  }
+  outline: 1px solid var(--mantine-color-blue-4);
+  transform: scale(1.05);
 }
 
 .cardBox {
