@@ -32,7 +32,7 @@ function App() {
         collapsed: { mobile: !opened },
       }}
       padding="md"
-      withBorder={true}
+      withBorder={false}
     >
       <AppShell.Header>
         <Group h="100%" p="10px" wrap="nowrap">
