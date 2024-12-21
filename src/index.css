@@ -1,3 +1,7 @@
+:root[data-mantine-color-scheme="dark"] {
+  --mantine-color-body: #161515 !important;
+}
+
 form {
   flex: 1;
 }
