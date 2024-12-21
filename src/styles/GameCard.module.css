@@ -42,14 +42,15 @@
 }
 
 .extraDetails {
-  display: none;
-  visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease-in-out;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
 }
 
 .backgroundBox:hover .extraDetails {
-  display: block;
-  visibility: visible;
   opacity: 1;
+  visibility: visible;
+  max-height: 100px;
 }
