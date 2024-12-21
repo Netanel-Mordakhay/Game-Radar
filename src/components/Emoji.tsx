@@ -17,12 +17,19 @@ const Emoji = ({ rating }: Props) => {
     3: meh,
   };
 
+  const titleMap: { [key: number]: string } = {
+    5: "Exceptional",
+    4: "Recommended",
+    3: "meh",
+  };
+
   return (
     <Image
       src={emojiMap[rating]}
       w={30}
       h={30}
       className={classes.emojiImage}
+      title={titleMap[rating]}
     />
   );
 };
