@@ -6,6 +6,8 @@ import {
   Stack,
   useComputedColorScheme,
   Group,
+  List,
+  Divider,
 } from "@mantine/core";
 import cx from "clsx";
 import classes from "../styles/GameCard.module.css";
@@ -25,6 +27,7 @@ const GameCard = ({ game }: Props) => {
 
   return (
     <BackgroundImage
+      h={340}
       src={getCroppedImageURL(game.background_image)}
       radius="md"
       className={cx(
@@ -35,7 +38,7 @@ const GameCard = ({ game }: Props) => {
       )}
     >
       <Stack justify="space-between" h="100%">
-        <Box h={160} p="10px">
+        <Box p="10px">
           <Emoji rating={game.rating_top} />
         </Box>
         <Box
@@ -53,6 +56,15 @@ const GameCard = ({ game }: Props) => {
             />
             <CriticScore score={game.metacritic} />
           </Group>
+          <Box className={classes.extraDetails}>
+            <List listStyleType="none">
+              <List.Item>Release date: 16/05/1996</List.Item>
+              <Divider my={5} />
+              <List.Item>Genres: RPG, Action, Adventure</List.Item>
+              <Divider my={5} />
+              <List.Item>Something else: text</List.Item>
+            </List>
+          </Box>
         </Box>
       </Stack>
     </BackgroundImage>
