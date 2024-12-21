@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group } from "@mantine/core";
+import { AppShell, Burger, Group, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
@@ -46,10 +46,12 @@ function App() {
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
-        <GenreList
-          selectedGenre={gameQuery.genre}
-          onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-        />
+        <ScrollArea>
+          <GenreList
+            selectedGenre={gameQuery.genre}
+            onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          />
+        </ScrollArea>
       </AppShell.Navbar>
 
       <AppShell.Main>
