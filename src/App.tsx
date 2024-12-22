@@ -47,6 +47,7 @@ function App() {
 
       <AppShell.Navbar p="md" withBorder>
         <ScrollArea>
+          <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
           <GenreList
             selectedGenre={gameQuery.genre}
             onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
