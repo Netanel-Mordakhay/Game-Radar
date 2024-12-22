@@ -45,7 +45,7 @@ function App() {
         </Group>
       </AppShell.Header>
 
-      <AppShell.Navbar p="md">
+      <AppShell.Navbar p="md" withBorder>
         <ScrollArea>
           <GenreList
             selectedGenre={gameQuery.genre}
