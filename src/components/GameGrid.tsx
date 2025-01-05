@@ -1,4 +1,4 @@
-import { Button, Loader, SimpleGrid, Text } from "@mantine/core";
+import { Loader, SimpleGrid, Text } from "@mantine/core";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
@@ -11,14 +11,8 @@ interface Props {
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
-  const {
-    data,
-    error,
-    isLoading,
-    isFetchingNextPage,
-    fetchNextPage,
-    hasNextPage,
-  } = useGames(gameQuery);
+  const { data, error, isLoading, fetchNextPage, hasNextPage } =
+    useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const fetchedGamesCount =
@@ -40,6 +34,7 @@ const GameGrid = ({ gameQuery }: Props) => {
             hasMore={!!hasNextPage}
             next={() => fetchNextPage()}
             loader={<Loader />}
+            style={{ overflow: "visible" }}
           >
             <SimpleGrid cols={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={25}>
               {data?.pages.map((page, index) => (
