@@ -10,7 +10,7 @@ import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo, SiAtari, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { Group } from "@mantine/core";
-import { Platform } from "../hooks/useGames";
+import { Platform } from "../hooks/usePlatforms";
 import { IconType } from "react-icons";
 import classes from "../styles/PlatformIconList.module.css";
 
