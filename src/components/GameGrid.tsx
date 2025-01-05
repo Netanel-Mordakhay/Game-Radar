@@ -1,9 +1,10 @@
-import { Button, SimpleGrid, Text } from "@mantine/core";
+import { Button, Loader, SimpleGrid, Text } from "@mantine/core";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import { GameQuery } from "../App";
 import React from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface Props {
   gameQuery: GameQuery;
@@ -20,6 +21,9 @@ const GameGrid = ({ gameQuery }: Props) => {
   } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+  const fetchedGamesCount =
+    data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
+
   return (
     <>
       {error && <Text>{error.message}</Text>}
@@ -31,20 +35,22 @@ const GameGrid = ({ gameQuery }: Props) => {
         </SimpleGrid>
       ) : (
         <>
-          <SimpleGrid cols={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={25}>
-            {data?.pages.map((page, index) => (
-              <React.Fragment key={index}>
-                {page.results.map((game) => (
-                  <GameCard key={game.id} game={game} />
-                ))}
-              </React.Fragment>
-            ))}
-          </SimpleGrid>
-          {hasNextPage && (
-            <Button onClick={() => fetchNextPage()}>
-              {isFetchingNextPage ? "Loading..." : "Show more"}
-            </Button>
-          )}
+          <InfiniteScroll
+            dataLength={fetchedGamesCount}
+            hasMore={!!hasNextPage}
+            next={() => fetchNextPage()}
+            loader={<Loader />}
+          >
+            <SimpleGrid cols={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={25}>
+              {data?.pages.map((page, index) => (
+                <React.Fragment key={index}>
+                  {page.results.map((game) => (
+                    <GameCard key={game.id} game={game} />
+                  ))}
+                </React.Fragment>
+              ))}
+            </SimpleGrid>
+          </InfiniteScroll>
         </>
       )}
     </>
