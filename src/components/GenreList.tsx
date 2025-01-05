@@ -28,7 +28,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
             Generes
           </Title>
           <List listStyleType="none">
-            {data.map((genre) => (
+            {data?.results.map((genre) => (
               <List.Item key={genre.id} my={2}>
                 <Button
                   size="md"
