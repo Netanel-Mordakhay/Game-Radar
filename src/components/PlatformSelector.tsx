@@ -59,7 +59,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
           </Button>
         </Menu.Target>
         <Menu.Dropdown>
-          {data.map((platform) => {
+          {data?.results.map((platform) => {
             const Icon = iconMap[platform.slug];
             return Icon ? (
               <Menu.Item
