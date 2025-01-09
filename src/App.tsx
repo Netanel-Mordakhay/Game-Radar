@@ -3,21 +3,13 @@ import { useDisclosure } from "@mantine/hooks";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { useState } from "react";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
 import "./index.css";
 import GameHeading from "./components/GameHeading";
 
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortOrder: string;
-  searchText: string;
-}
-
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  //const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -35,43 +27,24 @@ function App() {
       <AppShell.Header>
         <Group h="100%" p="10px" wrap="nowrap">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-          <NavBar
-            onSearch={(searchText) =>
-              setGameQuery({ ...gameQuery, searchText })
-            }
-          />
+          <NavBar />
         </Group>
       </AppShell.Header>
 
       <AppShell.Navbar p="md" withBorder>
         <ScrollArea>
           <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
-          <GenreList
-            selectedGenreId={gameQuery.genreId}
-            onSelectedGenre={(genre) =>
-              setGameQuery({ ...gameQuery, genreId: genre.id })
-            }
-          />
+          <GenreList />
         </ScrollArea>
       </AppShell.Navbar>
 
       <AppShell.Main>
-        <GameHeading gameQuery={gameQuery} />
+        <GameHeading />
         <Group>
-          <PlatformSelector
-            selectedPlatformId={gameQuery.platformId}
-            onSelectPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platformId: platform.id })
-            }
-          />
-          <SortSelector
-            sortOrder={gameQuery.sortOrder}
-            onSelectedSortOrder={(sortOrder) =>
-              setGameQuery({ ...gameQuery, sortOrder })
-            }
-          />
+          <PlatformSelector />
+          <SortSelector />
         </Group>
-        <GameGrid gameQuery={gameQuery} />
+        <GameGrid />
       </AppShell.Main>
     </AppShell>
   );

@@ -1,15 +1,13 @@
 import { Button, Group, Image, List, Stack, Title } from "@mantine/core";
-import useGenres, { Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
 import getCroppedImageURL from "../services/image-url";
 import NavBarItemSkeleton from "./NavBarItemSkeleton";
+import useGameQueryStore from "../store";
 
-interface Props {
-  selectedGenreId?: number;
-  onSelectedGenre: (genre: Genre) => void;
-}
-
-const GenreList = ({ selectedGenreId, onSelectedGenre }: Props) => {
+const GenreList = () => {
   const { data, error, isLoading } = useGenres();
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
   const skeletons = [1, 2, 3, 4];
 
   if (error) return null;
@@ -35,7 +33,7 @@ const GenreList = ({ selectedGenreId, onSelectedGenre }: Props) => {
                   variant={genre.id === selectedGenreId ? "light" : "subtle"}
                   //variant="subtle"
                   color="gray"
-                  onClick={() => onSelectedGenre(genre)}
+                  onClick={() => setSelectedGenreId(genre.id)}
                 >
                   <Group>
                     <Image

@@ -4,13 +4,9 @@ import { MdDateRange } from "react-icons/md";
 import { TbAbc, TbChartBarPopular } from "react-icons/tb";
 import { SiMetacritic } from "react-icons/si";
 import { CiCalendarDate } from "react-icons/ci";
+import useGameQueryStore from "../store";
 
-interface Props {
-  sortOrder: string;
-  onSelectedSortOrder: (sortOrder: string) => void;
-}
-
-const SortSelector = ({ sortOrder, onSelectedSortOrder }: Props) => {
+const SortSelector = () => {
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -18,6 +14,9 @@ const SortSelector = ({ sortOrder, onSelectedSortOrder }: Props) => {
     { value: "-released", label: "Release date" },
     { value: "-metacritic", label: "Metacritic" },
   ];
+
+  const sortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder);
 
   const currentSortOrder = sortOrders.find(
     (order) => order.value === sortOrder
@@ -44,31 +43,31 @@ const SortSelector = ({ sortOrder, onSelectedSortOrder }: Props) => {
         <Menu.Dropdown>
           <Menu.Item
             leftSection={<TbChartBarPopular />}
-            onClick={() => onSelectedSortOrder("")}
+            onClick={() => setSortOrder("")}
           >
             Relevance
           </Menu.Item>
           <Menu.Item
             leftSection={<MdDateRange />}
-            onClick={() => onSelectedSortOrder("-added")}
+            onClick={() => setSortOrder("-added")}
           >
             Date Added
           </Menu.Item>
           <Menu.Item
             leftSection={<TbAbc />}
-            onClick={() => onSelectedSortOrder("name")}
+            onClick={() => setSortOrder("name")}
           >
             Name
           </Menu.Item>
           <Menu.Item
             leftSection={<CiCalendarDate />}
-            onClick={() => onSelectedSortOrder("-release")}
+            onClick={() => setSortOrder("-release")}
           >
             Release Date
           </Menu.Item>
           <Menu.Item
             leftSection={<SiMetacritic />}
-            onClick={() => onSelectedSortOrder("-metacritic")}
+            onClick={() => setSortOrder("-metacritic")}
           >
             Metacritic
           </Menu.Item>
