@@ -65,7 +65,7 @@ const GameCard = ({ game }: Props) => {
             </Group>
             <Box className={classes.extraDetails}>
               <List listStyleType="none">
-                <List.Item>Release date: 16/05/1996</List.Item>
+                <List.Item>Release date: {game.released}</List.Item>
                 <Divider my={5} />
                 <List.Item>Genres: RPG, Action, Adventure</List.Item>
                 <Divider my={5} />
