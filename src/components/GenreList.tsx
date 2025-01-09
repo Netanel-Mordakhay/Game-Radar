@@ -4,11 +4,11 @@ import getCroppedImageURL from "../services/image-url";
 import NavBarItemSkeleton from "./NavBarItemSkeleton";
 
 interface Props {
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
   onSelectedGenre: (genre: Genre) => void;
 }
 
-const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectedGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4];
 
@@ -32,7 +32,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
               <List.Item key={genre.id} my={2}>
                 <Button
                   size="md"
-                  variant={genre.id === selectedGenre?.id ? "light" : "subtle"}
+                  variant={genre.id === selectedGenreId ? "light" : "subtle"}
                   //variant="subtle"
                   color="gray"
                   onClick={() => onSelectedGenre(genre)}
