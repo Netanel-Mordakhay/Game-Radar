@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useGame from "../hooks/useGame";
-import { Loader, Title, Text } from "@mantine/core";
+import { Loader, Title, Text, Spoiler } from "@mantine/core";
 
 const GameDeatilsPage = () => {
   const { slug } = useParams();
@@ -13,7 +13,9 @@ const GameDeatilsPage = () => {
   return (
     <>
       <Title>{game.name}</Title>
-      <Text>{game.description_raw}</Text>
+      <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
+        <Text>{game.description_raw}</Text>
+      </Spoiler>
     </>
   );
 };
