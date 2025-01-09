@@ -17,7 +17,7 @@ const Layout = () => {
         collapsed: { mobile: !opened },
       }}
       padding="md"
-      withBorder={false}
+      withBorder={true}
     >
       <AppShell.Header>
         <Group h="100%" p="10px" wrap="nowrap">
