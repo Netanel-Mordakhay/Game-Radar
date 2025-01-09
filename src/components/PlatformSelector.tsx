@@ -14,6 +14,7 @@ import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import usePlatfroms from "../hooks/usePlatforms";
 import { Platform } from "../hooks/usePlatforms";
+import usePlatform from "../hooks/usePlatform";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
@@ -22,9 +23,7 @@ interface Props {
 
 const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const { data, error } = usePlatfroms();
-  const selectedPlatform = data?.results.find(
-    (p) => p.id === selectedPlatformId
-  );
+  const selectedPlatform = usePlatform(selectedPlatformId);
 
   const iconMap: { [key: string]: IconType } = {
     // Mapping slug into icon name
