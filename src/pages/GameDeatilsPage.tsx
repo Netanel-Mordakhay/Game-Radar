@@ -25,24 +25,24 @@ const GameDeatilsPage = () => {
   if (error || !game) throw error;
 
   return (
-    <Box
-      className={cx(
-        classes.backgroundContainer,
-        computedColorScheme === "light" ? classes.light : classes.dark
-      )}
-      style={{
-        backgroundImage: `url(${getImageURL(game.background_image)})`,
-      }}
-    >
+    <>
+      <Box
+        className={cx(
+          classes.backgroundContainer,
+          computedColorScheme === "light" ? classes.light : classes.dark
+        )}
+        style={{
+          backgroundImage: `url(${getImageURL(game.background_image)})`,
+        }}
+      />
       <Box className={classes.content}>
         <Title>{game.name}</Title>
         <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
           <Text>{game.description_raw}</Text>
-          <Text>{game.description_raw}</Text>
         </Spoiler>
         <GameTrailer gameId={game.id} />
       </Box>
-    </Box>
+    </>
   );
 };
 
