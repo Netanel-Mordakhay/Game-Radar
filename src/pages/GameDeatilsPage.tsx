@@ -7,6 +7,7 @@ import {
   Spoiler,
   Box,
   useComputedColorScheme,
+  Grid,
 } from "@mantine/core";
 import cx from "clsx";
 import classes from "../styles/GameDetailsPage.module.css";
@@ -35,13 +36,20 @@ const GameDeatilsPage = () => {
           backgroundImage: `url(${getImageURL(game.background_image)})`,
         }}
       />
+
       <Box className={classes.content}>
-        <Title>{game.name}</Title>
-        <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
-          <Text>{game.released}</Text>
-          <Text>{game.description_raw}</Text>
-        </Spoiler>
-        {<GameTrailer gameId={game.id} /> || <Text>notrailer</Text>}
+        <Grid columns={2}>
+          <Grid.Col span={1}>
+            <Title>{game.name}</Title>
+            <Text>{game.released}</Text>
+            <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
+              <Text>{game.description_raw}</Text>
+            </Spoiler>
+          </Grid.Col>
+          <Grid.Col span={1}>
+            <GameTrailer gameId={game.id} />
+          </Grid.Col>
+        </Grid>
       </Box>
     </>
   );
