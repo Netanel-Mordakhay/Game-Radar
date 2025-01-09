@@ -1,4 +1,5 @@
 import useTrailers from "../hooks/useTrailers";
+import getCroppedImageURL from "../services/image-url";
 
 interface Props {
   gameId: number;

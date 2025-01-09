@@ -38,9 +38,10 @@ const GameDeatilsPage = () => {
       <Box className={classes.content}>
         <Title>{game.name}</Title>
         <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
+          <Text>{game.released}</Text>
           <Text>{game.description_raw}</Text>
         </Spoiler>
-        <GameTrailer gameId={game.id} />
+        {<GameTrailer gameId={game.id} /> || <Text>notrailer</Text>}
       </Box>
     </>
   );
