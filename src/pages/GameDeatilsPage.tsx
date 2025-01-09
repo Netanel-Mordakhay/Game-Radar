@@ -11,6 +11,7 @@ import {
 import cx from "clsx";
 import classes from "../styles/GameDetailsPage.module.css";
 import getImageURL from "../services/image-full-url";
+import GameTrailer from "../components/GameTrailer";
 
 const GameDeatilsPage = () => {
   const { slug } = useParams();
@@ -39,6 +40,7 @@ const GameDeatilsPage = () => {
           <Text>{game.description_raw}</Text>
           <Text>{game.description_raw}</Text>
         </Spoiler>
+        <GameTrailer gameId={game.id} />
       </Box>
     </Box>
   );
