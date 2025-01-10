@@ -1,5 +1,4 @@
 import useTrailers from "../hooks/useTrailers";
-import getCroppedImageURL from "../services/image-url";
 
 interface Props {
   gameId: number;
@@ -18,6 +17,8 @@ const GameTrailer = ({ gameId }: Props) => {
       src={first.data[480]}
       poster={first.preview}
       controls
+      autoPlay
+      muted
       style={{ maxWidth: "100%" }}
     />
   ) : null;
