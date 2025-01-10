@@ -27,7 +27,7 @@ const Layout = () => {
       </AppShell.Header>
 
       <AppShell.Navbar p="md" withBorder>
-        <ScrollArea>
+        <ScrollArea type="never">
           <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
           <SideMenu />
         </ScrollArea>

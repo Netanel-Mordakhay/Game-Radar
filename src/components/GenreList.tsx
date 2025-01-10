@@ -1,4 +1,12 @@
-import { Button, Group, Image, List, Stack, Title } from "@mantine/core";
+import {
+  Button,
+  Group,
+  Image,
+  List,
+  Spoiler,
+  Stack,
+  Title,
+} from "@mantine/core";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageURL from "../services/image-url";
 import NavBarItemSkeleton from "./NavBarItemSkeleton";
@@ -24,7 +32,7 @@ const GenreList = () => {
           ))}
         </Stack>
       ) : (
-        <>
+        <Spoiler maxHeight={300} showLabel="Show more" hideLabel="Hide">
           <Title order={4} size={24} mb={5}>
             Generes
           </Title>
@@ -56,7 +64,7 @@ const GenreList = () => {
               </List.Item>
             ))}
           </List>
-        </>
+        </Spoiler>
       )}
     </>
   );
