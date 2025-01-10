@@ -32,7 +32,7 @@ const GenreList = () => {
           ))}
         </Stack>
       ) : (
-        <Spoiler maxHeight={300} showLabel="Show more" hideLabel="Hide">
+        <Spoiler maxHeight={220} showLabel="Show more" hideLabel="Hide">
           <Title order={4} size={24} mb={5}>
             Generes
           </Title>
@@ -42,7 +42,6 @@ const GenreList = () => {
                 <Button
                   size="md"
                   variant={genre.id === selectedGenreId ? "light" : "subtle"}
-                  //variant="subtle"
                   color="gray"
                   onClick={() => {
                     setSelectedGenreId(genre.id);
@@ -53,9 +52,8 @@ const GenreList = () => {
                     <Image
                       h="32px"
                       w="32px"
-                      radius={16}
+                      radius={8}
                       src={getCroppedImageURL(genre.image_background)}
-                      //src={genre.image_background}
                       fit="cover"
                     />{" "}
                     {genre.name}
