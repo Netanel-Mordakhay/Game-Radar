@@ -24,7 +24,7 @@ const GameScreenshots = ({ gameId }: Props) => {
   return (
     <>
       <Title order={3}>Screenhosts</Title>
-      <SimpleGrid cols={2}>
+      <SimpleGrid cols={{ base: 2, md: 3 }}>
         {isLoading
           ? skeletons.map((skeleton) => (
               <Skeleton key={skeleton} height={200} />
