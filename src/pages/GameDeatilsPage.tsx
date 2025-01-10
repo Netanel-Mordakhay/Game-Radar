@@ -16,6 +16,7 @@ import classes from "../styles/GameDetailsPage.module.css";
 import getImageURL from "../services/image-full-url";
 import GameTrailer from "../components/GameTrailer";
 import PlatformIconlist from "../components/PlatformIconlist";
+import GameScreenshots from "../components/GameScreenshots";
 
 const GameDeatilsPage = () => {
   const { slug } = useParams();
@@ -75,6 +76,7 @@ const GameDeatilsPage = () => {
           </Grid.Col>
           <Grid.Col span={1}>
             <GameTrailer gameId={game.id} />
+            <GameScreenshots gameId={game.id} />
           </Grid.Col>
         </Grid>
       </Box>
