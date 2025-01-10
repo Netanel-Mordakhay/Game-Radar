@@ -1,5 +1,5 @@
 import useScreenshots from "../hooks/useScreenshots";
-import { Image, SimpleGrid, Text } from "@mantine/core";
+import { Image, SimpleGrid, Skeleton } from "@mantine/core";
 
 interface Props {
   gameId: number;
@@ -7,17 +7,22 @@ interface Props {
 
 const GameScreenshots = ({ gameId }: Props) => {
   const { data, isLoading, error } = useScreenshots(gameId);
-
-  if (isLoading) return <Text>Loading</Text>;
+  const skeletons = [1, 2, 3, 4, 5, 6];
 
   if (error) throw error;
 
   return (
-    <SimpleGrid cols={{ base: 1, md: 2 }}>
-      {data?.results.map((file) => (
-        <Image key={file.id} src={file.image} />
-      ))}
-    </SimpleGrid>
+    <>
+      <SimpleGrid cols={{ base: 1, md: 2 }}>
+        {isLoading
+          ? skeletons.map((skeleton) => (
+              <Skeleton key={skeleton} height={200} />
+            ))
+          : data?.results.map((file) => (
+              <Image key={file.id} src={file.image} radius="md" />
+            ))}
+      </SimpleGrid>
+    </>
   );
 };
 

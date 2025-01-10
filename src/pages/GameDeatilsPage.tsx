@@ -10,6 +10,7 @@ import {
   Grid,
   Badge,
   Group,
+  Image,
 } from "@mantine/core";
 import cx from "clsx";
 import classes from "../styles/GameDetailsPage.module.css";
@@ -17,6 +18,7 @@ import getImageURL from "../services/image-full-url";
 import GameTrailer from "../components/GameTrailer";
 import PlatformIconlist from "../components/PlatformIconlist";
 import GameScreenshots from "../components/GameScreenshots";
+import getCroppedImageURL from "../services/image-url";
 
 const GameDeatilsPage = () => {
   const { slug } = useParams();
@@ -49,13 +51,20 @@ const GameDeatilsPage = () => {
                 (platform) => platform.platform
               )}
             />
-            <Title>{game.name}</Title>
+            <Image
+              src={getCroppedImageURL(game.background_image)}
+              w={350}
+              my={10}
+              radius="md"
+            />
+            <Title textWrap="pretty">{game.name}</Title>
             <Badge mr={5} my={10}>
               Release date: {game.released}
             </Badge>
             <Badge mx={5} my={10}>
               Average playtime: {game.playtime}
             </Badge>
+
             <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
               <Text>{game.description_raw}</Text>
             </Spoiler>
