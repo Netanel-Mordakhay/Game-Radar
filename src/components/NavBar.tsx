@@ -7,12 +7,20 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <Group w="100%" justify="space-between">
-      <Link to="/">
+      <Link
+        to="/"
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "flex",
+          gap: "8px",
+        }}
+      >
         <Image src={logo} w="40px" h="40px" />
+        <Title visibleFrom="sm" order={2}>
+          Game Radar
+        </Title>
       </Link>
-      <Title visibleFrom="sm" order={2}>
-        Game Radar
-      </Title>
       <SearchInput />
       <ColorActionSwitch />
     </Group>
