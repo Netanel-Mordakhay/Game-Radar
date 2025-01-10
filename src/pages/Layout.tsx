@@ -1,8 +1,8 @@
 import { AppShell, Group, Burger, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import GenreList from "../components/GenreList";
 import NavBar from "../components/NavBar";
 import { Outlet } from "react-router-dom";
+import SideMenu from "../components/SideMenu";
 
 const Layout = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -29,7 +29,7 @@ const Layout = () => {
       <AppShell.Navbar p="md" withBorder>
         <ScrollArea>
           <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
-          <GenreList />
+          <SideMenu />
         </ScrollArea>
       </AppShell.Navbar>
 

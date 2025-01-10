@@ -7,10 +7,10 @@ import {
   Spoiler,
   Box,
   useComputedColorScheme,
-  Grid,
   Badge,
-  Group,
   Image,
+  SimpleGrid,
+  Stack,
 } from "@mantine/core";
 import cx from "clsx";
 import classes from "../styles/GameDetailsPage.module.css";
@@ -44,50 +44,40 @@ const GameDeatilsPage = () => {
       />
 
       <Box className={classes.content}>
-        <Grid columns={2}>
-          <Grid.Col span={1}>
-            <PlatformIconlist
-              platforms={game.parent_platforms.map(
-                (platform) => platform.platform
-              )}
-            />
-            <Image
-              src={getCroppedImageURL(game.background_image)}
-              maw={350}
-              my={10}
-              radius="md"
-            />
-            <Title textWrap="pretty">{game.name}</Title>
-            <Badge mr={5} my={10}>
-              Release date: {game.released}
-            </Badge>
-            <Badge mx={5} my={10}>
-              Average playtime: {game.playtime}
-            </Badge>
-
-            <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
-              <Text>{game.description_raw}</Text>
-            </Spoiler>
-
-            <Grid columns={2}>
-              <Grid.Col span={1}>
-                <Group>
-                  <Text>Platforms:</Text>
-                  {game.parent_platforms.map(
-                    (platform) => platform.platform.name
-                  )}
-                </Group>
-              </Grid.Col>
-              <Grid.Col span={1}>col 2</Grid.Col>
-              <Grid.Col span={1}>col 1</Grid.Col>
-              <Grid.Col span={1}>col 2</Grid.Col>
-            </Grid>
-          </Grid.Col>
-          <Grid.Col span={1}>
-            <GameTrailer gameId={game.id} />
-            <GameScreenshots gameId={game.id} />
-          </Grid.Col>
-        </Grid>
+        <SimpleGrid cols={{ sm: 1, md: 2 }}>
+          <Box>
+            <Stack>
+              <PlatformIconlist
+                platforms={game.parent_platforms.map(
+                  (platform) => platform.platform
+                )}
+              />
+              <Image
+                src={getCroppedImageURL(game.background_image)}
+                maw={350}
+                radius="md"
+              />
+              <Title textWrap="pretty">{game.name}</Title>
+              <Badge mr={5}>Release date: {game.released}</Badge>
+              <Badge mx={5}>Average playtime: {game.playtime}</Badge>
+              <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
+                <Text>{game.description_raw}</Text>
+              </Spoiler>
+              <SimpleGrid cols={2}>
+                <Text>Platforms:</Text>
+                <Text>Platforms:</Text>
+                <Text>Platforms:</Text>
+                <Text>Platforms:</Text>
+              </SimpleGrid>
+            </Stack>
+          </Box>
+          <Box>
+            <Stack>
+              <GameTrailer gameId={game.id} />
+              <GameScreenshots gameId={game.id} />
+            </Stack>
+          </Box>
+        </SimpleGrid>
       </Box>
     </>
   );

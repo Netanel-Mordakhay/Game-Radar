@@ -1,38 +1,43 @@
 .backgroundContainer {
   position: absolute;
-  top: 60px;
-  left: 300px;
+  top: 0;
+  left: 0;
   right: 0;
   height: 700px;
   max-height: 80svh;
   background-size: cover;
   background-position: top;
   z-index: 0;
-  overflow: hidden; /* לוודא שהתוכן לא חורג מהמיכל */
+  overflow: hidden;
+
+  @media (min-width: em(750px)) {
+    top: 60px;
+    left: 300px;
+  }
 }
 
 .backgroundContainer::after {
-  content: ""; /* שכבת טשטוש */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: inherit; /* שימוש בתמונת הרקע */
+  background-image: inherit;
   background-size: inherit;
   background-position: inherit;
-  filter: blur(3px); /* אפקט הטשטוש */
-  z-index: 0; /* מתחת לשכבת ה-overlay */
+  filter: blur(3px);
+  z-index: 0;
 }
 
 .backgroundContainer::before {
-  content: ""; /* שכבת overlay */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1; /* שכבה מעל הטשטוש */
+  z-index: 1;
 }
 
 .backgroundContainer.light::before {
