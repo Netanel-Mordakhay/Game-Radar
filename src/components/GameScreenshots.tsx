@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useScreenshots from "../hooks/useScreenshots";
+import classes from "../styles/GameScreenshots.module.css";
 import { Image, Modal, SimpleGrid, Skeleton } from "@mantine/core";
 
 interface Props {
@@ -34,6 +35,8 @@ const GameScreenshots = ({ gameId }: Props) => {
                 radius="md"
                 onClick={() => handleImageClick(file.image)}
                 style={{ cursor: "pointer" }}
+                className={classes.screenshotImage}
+                title="Game screenshot"
               />
             ))}
       </SimpleGrid>

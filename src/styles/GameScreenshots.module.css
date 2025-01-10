@@ -1,0 +1,9 @@
+.screenshotImage {
+  outline: none;
+  transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out;
+}
+
+.screenshotImage:hover {
+  outline: 1px solid var(--mantine-color-blue-4);
+  transform: scale(1.05);
+}
