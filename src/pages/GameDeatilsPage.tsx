@@ -58,8 +58,8 @@ const GameDeatilsPage = () => {
                 radius="md"
               />
               <Title textWrap="pretty">{game.name}</Title>
-              <Badge mr={5}>Release date: {game.released}</Badge>
-              <Badge mx={5}>Average playtime: {game.playtime}</Badge>
+              <Badge>Release date: {game.released}</Badge>
+              <Badge>Average playtime: {game.playtime}</Badge>
               <Spoiler maxHeight={120} showLabel="Show more" hideLabel="Hide">
                 <Text>{game.description_raw}</Text>
               </Spoiler>
