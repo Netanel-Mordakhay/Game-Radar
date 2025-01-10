@@ -53,7 +53,7 @@ const GameDeatilsPage = () => {
             />
             <Image
               src={getCroppedImageURL(game.background_image)}
-              w={350}
+              maw={350}
               my={10}
               radius="md"
             />
