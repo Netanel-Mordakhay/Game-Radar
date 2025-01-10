@@ -15,9 +15,9 @@ import {
 import cx from "clsx";
 import classes from "../styles/GameDetailsPage.module.css";
 import getImageURL from "../services/image-full-url";
-import GameTrailer from "../components/GameTrailer";
+import GameTrailer from "../components/GameDetails/GameTrailer";
 import PlatformIconlist from "../components/PlatformIconlist";
-import GameScreenshots from "../components/GameScreenshots";
+import GameScreenshots from "../components/GameDetails/GameScreenshots";
 import getCroppedImageURL from "../services/image-url";
 
 const GameDeatilsPage = () => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import useScreenshots from "../hooks/useScreenshots";
-import classes from "../styles/GameScreenshots.module.css";
-import { Image, Modal, SimpleGrid, Skeleton } from "@mantine/core";
+import useScreenshots from "../../hooks/useScreenshots";
+import classes from "../../styles/GameScreenshots.module.css";
+import { Image, Modal, SimpleGrid, Skeleton, Title } from "@mantine/core";
 
 interface Props {
   gameId: number;
@@ -23,6 +23,7 @@ const GameScreenshots = ({ gameId }: Props) => {
 
   return (
     <>
+      <Title order={3}>Screenhosts</Title>
       <SimpleGrid cols={2}>
         {isLoading
           ? skeletons.map((skeleton) => (
