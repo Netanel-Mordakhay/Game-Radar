@@ -35,9 +35,13 @@ const GameScreenshots = ({ gameId }: Props) => {
                 src={file.image}
                 radius="md"
                 onClick={() => handleImageClick(file.image)}
-                style={{ cursor: "pointer" }}
+                style={{
+                  cursor: "pointer",
+                }}
                 className={classes.screenshotImage}
                 title="Game screenshot"
+                h={150}
+                fit="cover"
               />
             ))}
       </SimpleGrid>
