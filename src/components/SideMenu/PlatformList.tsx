@@ -1,22 +1,22 @@
+import usePlatforms from "../../hooks/usePlatforms";
+import { useNavigate, useLocation } from "react-router-dom";
+import useGameQueryStore from "../../store";
 import {
   Button,
   Group,
-  Image,
   List,
   Spoiler,
   Stack,
   Title,
+  Image,
 } from "@mantine/core";
-import useGenres from "../hooks/useGenres";
-import getCroppedImageURL from "../services/image-url";
-import NavBarItemSkeleton from "./NavBarItemSkeleton";
-import useGameQueryStore from "../store";
-import { useLocation, useNavigate } from "react-router-dom";
+import NavBarItemSkeleton from "../NavBarItemSkeleton";
+import getCroppedImageURL from "../../services/image-url";
 
-const GenreList = () => {
-  const { data, error, isLoading } = useGenres();
-  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
-  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
+const PlatformList = () => {
+  const { data, error, isLoading } = usePlatforms();
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
   const navigate = useNavigate();
   const location = useLocation();
   const skeletons = [1, 2, 3, 4];
@@ -34,17 +34,19 @@ const GenreList = () => {
       ) : (
         <Spoiler maxHeight={220} showLabel="Show more" hideLabel="Hide">
           <Title order={4} size={24} mb={5}>
-            Generes
+            Platforms
           </Title>
           <List listStyleType="none">
-            {data?.results.map((genre) => (
-              <List.Item key={genre.id} my={2}>
+            {data?.results.map((platform) => (
+              <List.Item key={platform.id} my={2}>
                 <Button
                   size="md"
-                  variant={genre.id === selectedGenreId ? "light" : "subtle"}
+                  variant={
+                    platform.id === selectedPlatformId ? "light" : "subtle"
+                  }
                   color="gray"
                   onClick={() => {
-                    setSelectedGenreId(genre.id);
+                    setSelectedPlatformId(platform.id);
                     location.pathname !== "/" && navigate("/");
                   }}
                 >
@@ -53,10 +55,10 @@ const GenreList = () => {
                       h="32px"
                       w="32px"
                       radius={8}
-                      src={getCroppedImageURL(genre.image_background)}
+                      src={getCroppedImageURL(platform.image_background)}
                       fit="cover"
                     />{" "}
-                    {genre.name}
+                    {platform.name}
                   </Group>
                 </Button>
               </List.Item>
@@ -68,4 +70,4 @@ const GenreList = () => {
   );
 };
 
-export default GenreList;
+export default PlatformList;

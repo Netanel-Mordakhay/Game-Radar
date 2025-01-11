@@ -2,7 +2,7 @@ import { AppShell, Group, Burger, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import NavBar from "../components/NavBar";
 import { Outlet } from "react-router-dom";
-import SideMenu from "../components/SideMenu";
+import SideMenu from "../components/SideMenu/SideMenu";
 
 const Layout = () => {
   const [opened, { toggle }] = useDisclosure();

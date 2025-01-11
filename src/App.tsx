@@ -2,7 +2,7 @@ import { AppShell, Burger, Group, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
-import GenreList from "./components/GenreList";
+import GenreList from "./components/SideMenu/GenreList";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
 import "./index.css";
