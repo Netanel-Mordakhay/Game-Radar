@@ -1,39 +1,13 @@
-import {
-  FaWindows,
-  FaPlaystation,
-  FaXbox,
-  FaLinux,
-  FaAndroid,
-  FaApple,
-} from "react-icons/fa";
-import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo, SiAtari, SiSega } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
 import { Group } from "@mantine/core";
 import { Platform } from "../entities/Platform";
-import { IconType } from "react-icons";
 import classes from "../styles/PlatformIconList.module.css";
+import iconMap from "../data/icon-map";
 
 interface Props {
   platforms: Platform[];
 }
 
 const PlatformIconlist = ({ platforms }: Props) => {
-  const iconMap: { [key: string]: IconType } = {
-    // Mapping slug into icon name
-    pc: FaWindows,
-    playstation: FaPlaystation,
-    xbox: FaXbox,
-    nintendo: SiNintendo,
-    mac: FaApple,
-    linux: FaLinux,
-    ios: MdPhoneIphone,
-    android: FaAndroid,
-    web: BsGlobe,
-    atari: SiAtari,
-    sega: SiSega,
-  };
-
   return (
     <Group my={5}>
       {platforms.map((platform) => {

@@ -1,17 +1,9 @@
-import {
-  Button,
-  Group,
-  Image,
-  List,
-  Spoiler,
-  Stack,
-  Title,
-} from "@mantine/core";
+import { Button, Group, List, Spoiler, Stack, Title } from "@mantine/core";
 import useGenres from "../../hooks/useGenres";
-import getCroppedImageURL from "../../services/image-url";
 import NavBarItemSkeleton from "../NavBarItemSkeleton";
 import useGameQueryStore from "../../store";
 import { useLocation, useNavigate } from "react-router-dom";
+import iconMap from "../../data/icon-map";
 
 const GenreList = () => {
   const { data, error, isLoading } = useGenres();
@@ -37,30 +29,27 @@ const GenreList = () => {
             Generes
           </Title>
           <List listStyleType="none">
-            {data?.results.map((genre) => (
-              <List.Item key={genre.id} my={2}>
-                <Button
-                  size="md"
-                  variant={genre.id === selectedGenreId ? "light" : "subtle"}
-                  color="gray"
-                  onClick={() => {
-                    setSelectedGenreId(genre.id);
-                    location.pathname !== "/" && navigate("/");
-                  }}
-                >
-                  <Group>
-                    <Image
-                      h="32px"
-                      w="32px"
-                      radius={8}
-                      src={getCroppedImageURL(genre.image_background)}
-                      fit="cover"
-                    />{" "}
-                    {genre.name}
-                  </Group>
-                </Button>
-              </List.Item>
-            ))}
+            {data?.results.map((genre) => {
+              const Icon = iconMap[genre.slug];
+              return (
+                <List.Item key={genre.id} my={2}>
+                  <Button
+                    size="md"
+                    variant={genre.id === selectedGenreId ? "light" : "subtle"}
+                    color="gray"
+                    onClick={() => {
+                      setSelectedGenreId(genre.id);
+                      location.pathname !== "/" && navigate("/");
+                    }}
+                  >
+                    <Group>
+                      {Icon && <Icon size={24} />}
+                      {genre.name}
+                    </Group>
+                  </Button>
+                </List.Item>
+              );
+            })}
           </List>
         </Spoiler>
       )}
