@@ -22,7 +22,7 @@ const TopMenu = () => {
             }}
           >
             <Group>
-              <FaHome size="32px" /> Homepage
+              <FaHome size={24} /> Homepage
             </Group>
           </Button>
         </List.Item>
